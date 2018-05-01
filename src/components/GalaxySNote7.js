@@ -23,7 +23,7 @@ export default class GalaxySNote7 extends React.Component {
   }
 
   relax = () => {
-    
+    this.setState({panicked: false})
   }
 
   exclaim = () => {
@@ -32,6 +32,7 @@ export default class GalaxySNote7 extends React.Component {
     if (this.state.panicked) return
     this.exclaimAudio.play()
     this.squeelAudio.play()
+    this.props.changeEnvironment()
   }
 
   panic = () => (<img id="galaxy-exclamation" className="exclamation" src={exclamation} alt="" />)

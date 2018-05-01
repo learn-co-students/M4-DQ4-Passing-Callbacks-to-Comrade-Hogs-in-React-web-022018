@@ -38,12 +38,16 @@ export default class PigPen extends React.Component {
     ))
   }
 
+  changeEnvironment = () => {
+    this.setState({environment: "docile"})
+  }
+
   render() {
     const sheeple = this.generateSheeple()
     return(
       <div id="pig-pen">
         {sheeple}
-        <GalaxySNote7 environment={this.state.environment} alterEnvironment={this.alterEnvironment} />
+        <GalaxySNote7 changeEnvironment={this.changeEnvironment} alterEnvironment={this.alterEnvironment} />
       </div>
     )
   }
