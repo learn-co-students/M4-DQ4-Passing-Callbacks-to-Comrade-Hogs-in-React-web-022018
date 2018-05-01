@@ -18,10 +18,23 @@ export default class GalaxySNote7 extends React.Component {
     }, false)
   }
 
+  bePanicked = () => {
+    this.setState({
+      panicked: true
+    })
+    this.exclaim()
+  }
+
   throwAFit = () => {
+    this.props.alterEnvironment('inhospitable')
+    setTimeout(this.relax, 2000)
   }
 
   relax = () => {
+    this.props.alterEnvironment('docile')
+    this.setState({
+      panicked: false
+    })
   }
 
   exclaim = () => {
@@ -34,7 +47,7 @@ export default class GalaxySNote7 extends React.Component {
 
   render() {
     return(
-      <div id="galaxy-s-note" onClick={this.exclaim}>
+      <div id="galaxy-s-note" onClick={this.bePanicked}>
         {(this.state.panicked) ? this.panic() : null}
       </div>
     )
